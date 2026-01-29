@@ -1,5 +1,5 @@
 {
-  "name": "gaza-news-backend",
+  "name": "gaza-news-backend1",
   "version": "1.0.0",
   "description": "Backend API for Gaza news",
   "main": "src/server.js",
@@ -7,6 +7,8 @@
     "start": "node src/server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12"
   }
 }
