@@ -1,5 +1,5 @@
 const express = require('express');
-
+const scrapeNews = require('./scraper');
 const app = express();
 const PORT = process.env.PORT || 3000;
 // Root API
@@ -10,16 +10,14 @@ app.get('/', (req, res) => {
   });
 });
 
-// News API
-app.get('/news', (req, res) => {
-  res.json([
-    {
-      id: 1,
-      title: 'Gaza update',
-      source: 'Example source',
-      date: '2026-01-29'
-    }
-  ]);
+app.get('/news', async (req, res) => {
+  const news = await scrapeNews();
+
+  res.json({
+    status: 'ok',
+    count: news.length,
+    data: news
+  });
 });
 
 app.listen(PORT, () => {
